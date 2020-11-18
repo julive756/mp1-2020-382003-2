@@ -10,8 +10,7 @@ void swaplementm(int B[], int i1, int i2)
 	B[i2] = t;
 }
 
-swaplementm(B, i, i - 1)
-swaplementp(B, j, j + 1)
+
 
 void swaplementp(int B[], int j)
 {
@@ -130,13 +129,7 @@ void InsertSort(int B[], int n)
 			index = index - 1;
 		}
 		B[index + 1] = Elementvzat;
-		//printf("\n");
-		/*for (int i = 0; i < n; i++)
-		{
-			printf(" %d ", B[i]);
-		}*/
 	}
-
 }
 void ShakerSort(int B[], int n)
 {
