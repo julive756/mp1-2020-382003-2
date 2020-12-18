@@ -1,74 +1,42 @@
-
-
-//задача на условие N13
-
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#define size 31
+#include "stdio.h"
+#include "malloc.h"
+#define SIZE 17
 
-int main()
+
+void InsertionSort(int n, int A[])
 {
-	int v1;
-	int v2;
-	int v3;
-	int t1;
-	int t2;
-	int t3;
-	double poluput;
-	scanf("%d", &v1);
-	scanf("%d", &v2);
-	scanf("%d", &v3);
-	scanf("%d", &t1);
-	scanf("%d", &t2);
-	scanf("%d", &t3);
-	poluput = (v1 * t1 + v1 * t2 + v3 * t3) / 2;
-	if (v1 * t1 >= poluput)
-	{
-		printf("bus ");
-	}
-	else
-	{
-		if (v2 * t2 + v2 * t2 >= poluput)
-		{
-			printf("a bike ");
-		}
-		else
-		{
-			printf("on foot ");
-		}
-	}
-	return 0;
+    int newElement, location;
+
+    for (int i = 1; i < n; i++)
+    {
+        newElement = A[i];
+        location = i - 1;
+        while (location >= 0 && A[location] > newElement)
+        {
+            A[location + 1] = A[location];
+            location = location - 1;
+        }
+        A[location + 1] = newElement;
+    }
 }
 
-
-//задача на массивы 28d
-
-
 int main()
-{
-	int i, max, min, dayx, dayy;
-	int menstr[size];
-	max = 0;
-	min = 100000;
-	for (i = 0; i < size; i++)
-	{
-		scanf("%d ", &menstr[i]);
-	}
-	for (i = 1; i <= size; i++)
-	{
-		if (menstr[i] > max )
-		{
-			max = menstr[i];
-			dayx = i;
+{  
+  
+    int a[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        a[i] = (rand() % 100);
+        printf("%d ", a[i]);
+    }
+    InsertionSort(SIZE, a);
 
-		}
-		if (menstr[i] < min && menstr[i] > 0)
-		{
-			min = menstr[i];
-			dayy = i;
-		}
-	}
-	printf("maximum osadkov v den %d: %d\n", dayx, max);
-	printf("mimimum osadkov v den %d: %d\n", dayy, min);
-	return 0;
+
+    printf("\n");
+    for (int i = 0; i < SIZE; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+    //освобождение памяти
+    return 0;
 }
